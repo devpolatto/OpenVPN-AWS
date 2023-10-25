@@ -3,3 +3,5 @@ venv-OpenVPN/lib
 
 # Terraform files
 terraform/locals.tf
+terraform/.terraform
+terraform/.terraform.lock.hcl
