@@ -1,2 +1,5 @@
 venv-OpenVPN/bin
 venv-OpenVPN/lib
+
+# Terraform files
+terraform/locals.tf
