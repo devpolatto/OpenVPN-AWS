@@ -5,7 +5,7 @@
 
 # Steps
 
-[  ] - provision an EC2 instance with terraform \
+[ X ] - provision an EC2 instance with terraform \
 [  ] - Install OpenVPN source code on an EC2 instance
 
 
