@@ -30,6 +30,7 @@ resource "aws_instance" "instance" {
      aws_security_group.access-ssh.id,
      aws_security_group.traffic-to-net.id,
      aws_security_group.allow-icmp.id,
+     aws_security_group.openvpn-tunnel-port.id,
 ]
   tags                   = merge(var.common_tags, { Name = "OpenVPN" })
 }

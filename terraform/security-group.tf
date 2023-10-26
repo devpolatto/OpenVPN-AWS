@@ -63,3 +63,22 @@ resource "aws_security_group_rule" "allow-icmp_from_net" {
   security_group_id = aws_security_group.allow-icmp.id
 }
 ########################## ping (ICMP) ##########################
+
+########################## OpenVPN port ##########################
+resource "aws_security_group" "openvpn-tunnel-port" {
+  name        = "${lookup(var.common_tags, "ALIAS_PROJECT", "sg_public")} - OpenVPN Tunnel Port"
+  description = "Tunnel port"
+  vpc_id      = local.vpc_id
+
+  tags = merge(var.common_tags, { Name = "${lookup(var.common_tags, "ALIAS_PROJECT")} - OpenVPN Tunnel Port"})
+}
+
+resource "aws_security_group_rule" "tunnel-port" {
+  type              = "ingress"
+  from_port         = 1194
+  to_port           = 1194
+  protocol          = "udp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.openvpn-tunnel-port.id
+}
+########################## ping (ICMP) ##########################
