@@ -1,4 +1,4 @@
-<img align='right' src="venv-OpenVPN/openvpn_lab.png" style='height: auto; width: 100%'>
+<img align='right' src="POC_OpenVPN-topology.png" style='height: auto; width: 100%'>
 
 <h1 style='text-align: center'>OpenVPN AWS Lab</h1>
 
