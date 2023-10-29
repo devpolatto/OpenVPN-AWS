@@ -17,3 +17,9 @@ locals {
   profile = "" # profile default ou personalizado em seu .aws/credentials
 }
 ```
+## OpenVPN Server resources
+To build the EC2 instances of OpenVPN, the following resources were used:
+- aws_ami : `The instance model is chosen dynamically`
+- aws_instance
+- aws_network_interface : `To link an Elastic IP we need a static ip`
+- aws_eip

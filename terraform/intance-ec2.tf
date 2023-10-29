@@ -1,6 +1,7 @@
 data "aws_ami" "Ubuntu_22" {
   most_recent      = true
   name_regex = "ubuntu"
+  owners           = ["amazon"]
 
   filter {
     name   = "architecture"
@@ -24,13 +25,11 @@ resource "aws_instance" "instance" {
   availability_zone = "${local.region}a"
   key_name          = aws_key_pair.key_pair.id
 #   user_data         = file("")
-  subnet_id         = local.subnet
 
-  vpc_security_group_ids = [
-     aws_security_group.access-ssh.id,
-     aws_security_group.traffic-to-net.id,
-     aws_security_group.allow-icmp.id,
-     aws_security_group.openvpn-tunnel-port.id,
-]
+  network_interface {
+    network_interface_id = aws_network_interface.openvpn-network_interface.id
+    device_index = 0
+  }
+
   tags                   = merge(var.common_tags, { Name = "OpenVPN" })
 }
