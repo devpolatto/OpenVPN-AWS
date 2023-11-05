@@ -13,8 +13,9 @@ resource "aws_network_interface" "openvpn-network_interface" {
 }
 
 resource "aws_eip" "this" {
+  vpc = true
   network_interface         = aws_network_interface.openvpn-network_interface.id
   associate_with_private_ip = var.subnet.primary_ipv4
 
-  depends_on = [ aws_instance.instance ]
+  depends_on = [ aws_network_interface.openvpn-network_interface ]
 }
