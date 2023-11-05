@@ -20,7 +20,7 @@ data "aws_ami" "Ubuntu_22" {
 }
 
 resource "aws_instance" "instance" {
-  ami               = data.aws_ami.Ubuntu_22.id
+  ami               = "ami-0fc5d935ebf8bc3bc"
   instance_type     = "t2.micro"
   availability_zone = "${local.region}a"
   key_name          = aws_key_pair.key_pair.id
